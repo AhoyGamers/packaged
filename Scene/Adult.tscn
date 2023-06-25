@@ -1,0 +1,256 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://UI/UI.tres" type="TileSet" id=1]
+[ext_resource path="res://Objects/bingus_zone/Adult/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/bingus_zone/Adult/Easel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/bingus_zone/Adult/fossil.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/bingus_zone/Adult/Guitar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/bingus_zone/Adult/Mining_Helmet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/bingus_zone/Adult/Molecule.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/adult/toyotaPrius.png" type="Texture" id=8]
+[ext_resource path="res://Objects/bingus_zone/Adult/Radio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scene/Game_Scene.gd" type="Script" id=10]
+[ext_resource path="res://UI/Grid.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/BGs/adultGradient.png" type="Texture" id=12]
+[ext_resource path="res://Scene/Packing_area.gd" type="Script" id=13]
+[ext_resource path="res://Scene/TotalText.gd" type="Script" id=14]
+[ext_resource path="res://Scene/Trash.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/trashcan2.png" type="Texture" id=16]
+[ext_resource path="res://Objects/bingus_zone/Adult/Rocket.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sprites/trashcan1.png" type="Texture" id=18]
+[ext_resource path="res://UI/square.png" type="Texture" id=19]
+[ext_resource path="res://fonts/PixelMed.tres" type="Theme" id=20]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 113.5, 141 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 58, 80 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 43, 45.5 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "FadeInFinal"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Child" type="Node2D"]
+position = Vector2( 0, 1 )
+script = ExtResource( 10 )
+next_level = "res://Scene/Ending.tscn"
+music = "None"
+
+[node name="Black" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0 )
+light_mask = 0
+position = Vector2( 481, 269 )
+scale = Vector2( 16, 9.01667 )
+z_index = 100
+texture = ExtResource( 19 )
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+offset = Vector2( 480, 270 )
+
+[node name="ToyotaPrius" type="Sprite" parent="."]
+position = Vector2( 44, 355 )
+texture = ExtResource( 8 )
+
+[node name="Grid" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 60, 60 )
+format = 1
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0 )
+script = ExtResource( 11 )
+
+[node name="Packing_area" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 120, 331 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 290, 387 )
+shape = SubResource( 14 )
+
+[node name="Camera" parent="." groups=["object"] instance=ExtResource( 2 )]
+position = Vector2( 101, 72 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Easel" parent="." groups=["object"] instance=ExtResource( 3 )]
+position = Vector2( 391, 137 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Fossil" parent="." groups=["object"] instance=ExtResource( 4 )]
+position = Vector2( 542, 171 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Guitar" parent="." groups=["object"] instance=ExtResource( 5 )]
+position = Vector2( 833, 129 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Mining_Helmet" parent="." groups=["object"] instance=ExtResource( 6 )]
+position = Vector2( 594, 304 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Molecule" parent="." groups=["object"] instance=ExtResource( 7 )]
+position = Vector2( 632, 445 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="Radio" parent="." groups=["object"] instance=ExtResource( 9 )]
+position = Vector2( 809, 314 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Rocket" parent="." groups=["object"] instance=ExtResource( 17 )]
+position = Vector2( 458, 415 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="Trash" type="Node2D" parent="."]
+position = Vector2( 823, 441 )
+script = ExtResource( 15 )
+
+[node name="Can" type="AnimatedSprite" parent="Trash"]
+frames = SubResource( 12 )
+animation = "Closed"
+
+[node name="Area2D" type="Area2D" parent="Trash" groups=["trash"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Area2D"]
+position = Vector2( 1, 7.5 )
+shape = SubResource( 13 )
+
+[node name="EndLevelNodes" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndLevelNodes"]
+margin_left = 268.0
+margin_top = 19.0
+margin_right = 759.0
+margin_bottom = 104.0
+mouse_filter = 2
+theme = ExtResource( 20 )
+bbcode_enabled = true
+bbcode_text = "All Items Packed!"
+text = "All Items Packed!"
+script = ExtResource( 14 )
+english_text = "All Items Packed!"
+JP_text = " 荷造り完了！"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeInFinal = SubResource( 15 )
+anims/RESET = SubResource( 16 )
+
+[connection signal="end_level" from="." to="EndLevelNodes/RichTextLabel" method="_on_Test_end_level"]
+[connection signal="delete" from="Trash" to="." method="_on_Trash_delete"]
+[connection signal="mouse_entered" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

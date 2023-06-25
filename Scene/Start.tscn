@@ -1,0 +1,413 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scene/Start.gd" type="Script" id=1]
+[ext_resource path="res://fonts/SnideAsides v1.0/Snide Asides.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Pixel.theme" type="Theme" id=3]
+[ext_resource path="res://Scene/ButtonHover.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/transitions/childRoom_noKid.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/transitions/childRoom.png" type="Texture" id=6]
+[ext_resource path="res://UI/square.png" type="Texture" id=7]
+[ext_resource path="res://fonts/PixelMed.tres" type="Theme" id=8]
+[ext_resource path="res://Scene/URL.gd" type="Script" id=9]
+[ext_resource path="res://Scene/LanguageSwapper.gd" type="Script" id=10]
+[ext_resource path="res://fonts/LargePixel.tres" type="Theme" id=11]
+[ext_resource path="res://fonts/JP_Large.tres" type="DynamicFont" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 1 )
+RichTextLabel/fonts/normal_font = ExtResource( 12 )
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChildRoom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Begin/RichTextLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CreditsButton/CredsLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "PutCredits"
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChildRoom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Begin/RichTextLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CreditsButton:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CreditsButton/CredsLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "MoveInCreds"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -355, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "MoveOutCreds"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Credits2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -355, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Credits2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Credits2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Credits2:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Start" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ChildRoomNoKid" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+offset = Vector2( 480, 270 )
+
+[node name="ChildRoom" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 6 )
+offset = Vector2( 480, 270 )
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 27.0
+margin_right = 431.0
+margin_bottom = 105.0
+theme = ExtResource( 11 )
+bbcode_enabled = true
+bbcode_text = "Packaged"
+text = "Packaged"
+
+[node name="Begin" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 59.0
+margin_top = 168.0
+margin_right = 220.0
+margin_bottom = 234.0
+rect_pivot_offset = Vector2( 0, -1 )
+theme = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Begin"]
+margin_left = -51.0
+margin_top = -17.0
+margin_right = 295.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( -1, 1 )
+mouse_filter = 2
+theme = ExtResource( 11 )
+custom_colors/selection_color = Color( 1, 0.14902, 0.14902, 1 )
+text = "Begin"
+script = ExtResource( 10 )
+english_text = "Begin"
+JP_text = "> はじめる"
+
+[node name="CreditsButton" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 12.0
+margin_top = 251.0
+margin_right = 241.0
+margin_bottom = 317.0
+rect_pivot_offset = Vector2( 0, -1 )
+theme = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="CredsLabel" type="RichTextLabel" parent="CreditsButton"]
+margin_right = 399.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( -1, 1 )
+mouse_filter = 2
+theme = ExtResource( 11 )
+custom_colors/selection_color = Color( 1, 0.14902, 0.14902, 1 )
+text = "Credits"
+script = ExtResource( 10 )
+english_text = "Credits"
+JP_text = "> クレジット"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeInKid = SubResource( 8 )
+anims/PutCredits = SubResource( 3 )
+anims/RESET = SubResource( 2 )
+
+[node name="CreditsAnim" type="AnimationPlayer" parent="."]
+anims/MoveInCreds = SubResource( 4 )
+anims/MoveOutCreds = SubResource( 6 )
+anims/RESET = SubResource( 5 )
+
+[node name="Credits2" type="Node2D" parent="."]
+
+[node name="CreditsBG" type="Sprite" parent="Credits2"]
+position = Vector2( 987, 0 )
+scale = Vector2( 5.43333, 8.98333 )
+texture = ExtResource( 7 )
+offset = Vector2( 30, 29.9443 )
+
+[node name="CreditsTitle" type="RichTextLabel" parent="Credits2"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 1046.0
+margin_top = 3.0
+margin_right = 1314.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( -1, 1 )
+mouse_filter = 2
+theme = ExtResource( 8 )
+custom_colors/selection_color = Color( 1, 0.14902, 0.14902, 1 )
+bbcode_enabled = true
+bbcode_text = "クレジット"
+text = "クレジット"
+script = ExtResource( 10 )
+english_text = "Credits"
+JP_text = "クレジット"
+
+[node name="CreditsSubtitle" type="RichTextLabel" parent="Credits2"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 994.0
+margin_top = 46.0
+margin_right = 1304.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( -1, 1 )
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_colors/selection_color = Color( 1, 0.14902, 0.14902, 1 )
+text = "Made with Godot in 48 hours by"
+script = ExtResource( 10 )
+english_text = "Made with Godot in 48 hours by"
+
+[node name="CreditsText" type="RichTextLabel" parent="Credits2"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 994.0
+margin_top = 119.0
+margin_right = 1304.0
+margin_bottom = 566.0
+rect_pivot_offset = Vector2( -1, 1 )
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_colors/selection_color = Color( 1, 0.14902, 0.14902, 1 )
+text = "プログラマー：
+絵師・翻訳：
+音楽：
+ピコピコチップチューン日和
+作曲：今川彰人オーケストラ 
+Pico Pico
+作曲：Make a field Music
+なつい夏
+作曲：イワシロ音楽素材
+"
+script = ExtResource( 10 )
+english_text = "Coder: 
+Art/Translator:
+Sound:
+“Piko Piko Chiptune Days”
+ by Imagawa Akihito Orchestra
+
+“Pico Pico” 
+ by Make a field music
+
+“Nostalgic Summer” 
+ by Iwashiro Sounds
+Font: \"Snide Asides\"
+by Nathan Scott"
+JP_text = "プログラマー：
+絵師・翻訳：
+音楽：
+ピコピコチップチューン日和
+作曲：今川彰人オーケストラ 
+Pico Pico
+作曲：Make a field Music
+なつい夏
+作曲：イワシロ音楽素材
+"
+
+[node name="URLJSAniken" type="RichTextLabel" parent="Credits2"]
+modulate = Color( 0, 0.443137, 1, 1 )
+margin_left = 1180.0
+margin_top = 145.0
+margin_right = 1364.0
+margin_bottom = 178.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[u]@JSAniken[/u]"
+text = "@JSAniken"
+script = ExtResource( 9 )
+url = "https://twitter.com/JSAniken"
+
+[node name="URLPhil" type="RichTextLabel" parent="Credits2"]
+modulate = Color( 0, 0.443137, 1, 1 )
+margin_left = 1145.0
+margin_top = 121.0
+margin_right = 1329.0
+margin_bottom = 154.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[u]@AhoyItsPhil[/u]"
+text = "@AhoyItsPhil"
+script = ExtResource( 9 )
+url = "https://twitter.com/AhoyItsPhil"
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="Begin" to="Begin" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Begin" to="Begin" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Begin" to="." method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="CreditsButton" to="CreditsButton" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="CreditsButton" to="CreditsButton" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_Credits_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="gui_input" from="Credits2/URLJSAniken" to="Credits2/URLJSAniken" method="_on_URLPhil_gui_input"]
+[connection signal="gui_input" from="Credits2/URLPhil" to="Credits2/URLPhil" method="_on_URLPhil_gui_input"]

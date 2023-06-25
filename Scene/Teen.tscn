@@ -1,0 +1,252 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://UI/UI.tres" type="TileSet" id=1]
+[ext_resource path="res://Objects/bingus_zone/Teen/Ukelele.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/BGs/teenGradient.png" type="Texture" id=3]
+[ext_resource path="res://fonts/PixelMed.tres" type="Theme" id=4]
+[ext_resource path="res://Scene/Game_Scene.gd" type="Script" id=10]
+[ext_resource path="res://UI/Grid.gd" type="Script" id=11]
+[ext_resource path="res://UI/square.png" type="Texture" id=12]
+[ext_resource path="res://Scene/Packing_area.gd" type="Script" id=13]
+[ext_resource path="res://Scene/TotalText.gd" type="Script" id=14]
+[ext_resource path="res://Scene/Trash.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/trashcan2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/trashcan1.png" type="Texture" id=18]
+[ext_resource path="res://Objects/bingus_zone/Teen/microscope.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/bingus_zone/Teen/Calculator.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/bingus_zone/Teen/CDs.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/bingus_zone/Teen/markers.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/bingus_zone/Teen/Palette.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/bingus_zone/Teen/Paper_Tiger.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/bingus_zone/Teen/Skull.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Sprites/teen/cardboard.png" type="Texture" id=27]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 185.5, 130 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 43, 45.5 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "FadeInFinal"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Child" type="Node2D"]
+position = Vector2( 0, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_vertical_guides_": [ -165.0 ]
+}
+next_level = "res://Scene/AdultCG.tscn"
+music = "None"
+
+[node name="Black" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0 )
+light_mask = 0
+position = Vector2( 481, 269 )
+scale = Vector2( 16, 9.01667 )
+z_index = 100
+texture = ExtResource( 12 )
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+offset = Vector2( 480, 270 )
+
+[node name="Cardboard" type="Sprite" parent="."]
+position = Vector2( 488, 350 )
+texture = ExtResource( 27 )
+
+[node name="Grid" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 60, 60 )
+format = 1
+tile_data = PoolIntArray( 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0 )
+script = ExtResource( 11 )
+
+[node name="Calculator" parent="." groups=["object"] instance=ExtResource( 21 )]
+position = Vector2( 106, 48 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="CDs" parent="." groups=["object"] instance=ExtResource( 22 )]
+position = Vector2( 226, 95 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Markers" parent="." groups=["object"] instance=ExtResource( 23 )]
+position = Vector2( 187, 437 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Microscope" parent="." groups=["object"] instance=ExtResource( 19 )]
+position = Vector2( 876, 274 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="Palette" parent="." groups=["object"] instance=ExtResource( 24 )]
+position = Vector2( 739, 77 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Paper_Tiger" parent="." groups=["object"] instance=ExtResource( 25 )]
+position = Vector2( 101, 186 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Skull" parent="." groups=["object"] instance=ExtResource( 26 )]
+position = Vector2( 87, 387 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Ukelele" parent="." groups=["object"] instance=ExtResource( 2 )]
+position = Vector2( 420, 140 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Packing_area" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 485.5, 350 )
+shape = SubResource( 11 )
+
+[node name="Trash" type="Node2D" parent="."]
+position = Vector2( 823, 441 )
+script = ExtResource( 15 )
+
+[node name="Can" type="AnimatedSprite" parent="Trash"]
+frames = SubResource( 12 )
+animation = "Closed"
+
+[node name="Area2D" type="Area2D" parent="Trash" groups=["trash"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Area2D"]
+position = Vector2( 1, 7.5 )
+shape = SubResource( 13 )
+
+[node name="EndLevelNodes" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndLevelNodes"]
+margin_left = 298.0
+margin_top = 69.0
+margin_right = 800.0
+margin_bottom = 154.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "All items packed!"
+text = "All items packed!"
+script = ExtResource( 14 )
+english_text = "All items packed!"
+JP_text = "荷造り完了！"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeInFinal = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[connection signal="end_level" from="." to="EndLevelNodes/RichTextLabel" method="_on_Test_end_level"]
+[connection signal="delete" from="Trash" to="." method="_on_Trash_delete"]
+[connection signal="mouse_entered" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

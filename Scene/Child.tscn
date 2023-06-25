@@ -1,0 +1,236 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://UI/UI.tres" type="TileSet" id=1]
+[ext_resource path="res://Objects/bingus_zone/Crayons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/bingus_zone/Xylophone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/bingus_zone/Toy_Dino.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/bingus_zone/Slug_Plush.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/bingus_zone/Astro_Helmet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/bingus_zone/MP3_Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/bingus_zone/Mag_Glass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/bingus_zone/Solider.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scene/Game_Scene.gd" type="Script" id=10]
+[ext_resource path="res://UI/Grid.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/BGs/childGradient-export.png" type="Texture" id=12]
+[ext_resource path="res://Scene/Packing_area.gd" type="Script" id=13]
+[ext_resource path="res://Scene/TotalText.gd" type="Script" id=14]
+[ext_resource path="res://Scene/Trash.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/trashcan2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/backpack.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/trashcan1.png" type="Texture" id=18]
+[ext_resource path="res://fonts/PixelMed.tres" type="Theme" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.5, 56.5 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 113.5, 141 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30.75, 53.75 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 43, 45.5 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "FadeInFinal"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndLevelNodes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Child" type="Node2D"]
+position = Vector2( 0, 1 )
+script = ExtResource( 10 )
+next_level = "res://Scene/TeenCG.tscn"
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 478, 272.5 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Backpack" type="Sprite" parent="."]
+position = Vector2( 483, 313 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Grid" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 60, 60 )
+format = 1
+tile_data = PoolIntArray( 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0 )
+script = ExtResource( 11 )
+
+[node name="Soldier" parent="." groups=["object"] instance=ExtResource( 9 )]
+position = Vector2( 92, 95 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Toy_Dino" parent="." groups=["object"] instance=ExtResource( 4 )]
+position = Vector2( 319, 94 )
+characteristics = {
+"archeologist_points": 1,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Slug_Plush" parent="." groups=["object"] instance=ExtResource( 5 )]
+position = Vector2( 756, 266 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Crayons" parent="." groups=["object"] instance=ExtResource( 2 )]
+position = Vector2( 194, 475 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 1,
+"musician_points": 0,
+"scientist_points": 0
+}
+
+[node name="Astro_Helmet" parent="." groups=["object"] instance=ExtResource( 6 )]
+position = Vector2( 816, 72 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="Mag_Glass" parent="." groups=["object"] instance=ExtResource( 8 )]
+position = Vector2( 161, 248 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 0,
+"scientist_points": 1
+}
+
+[node name="MP3_Player" parent="." groups=["object"] instance=ExtResource( 7 )]
+position = Vector2( 175, 90 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Xylophone" parent="." groups=["object"] instance=ExtResource( 3 )]
+position = Vector2( 82, 226 )
+characteristics = {
+"archeologist_points": 0,
+"artist_points": 0,
+"musician_points": 1,
+"scientist_points": 0
+}
+
+[node name="Packing_area" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 339.5, 418.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 481.5, 328 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Packing_area"]
+position = Vector2( 625, 418 )
+shape = SubResource( 3 )
+
+[node name="Trash" type="Node2D" parent="."]
+position = Vector2( 823, 441 )
+script = ExtResource( 15 )
+
+[node name="Can" type="AnimatedSprite" parent="Trash"]
+frames = SubResource( 12 )
+animation = "Closed"
+
+[node name="Area2D" type="Area2D" parent="Trash" groups=["trash"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Area2D"]
+position = Vector2( 1, 7.5 )
+shape = SubResource( 13 )
+
+[node name="EndLevelNodes" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = -1.0
+margin_right = 40.0
+margin_bottom = 39.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndLevelNodes"]
+margin_left = 221.0
+margin_top = 70.0
+margin_right = 742.0
+margin_bottom = 130.0
+mouse_filter = 2
+theme = ExtResource( 19 )
+bbcode_enabled = true
+bbcode_text = "All Items Packed!"
+text = "All Items Packed!"
+script = ExtResource( 14 )
+english_text = "All Items Packed!"
+JP_text = "荷造り完了！"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeInFinal = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[connection signal="end_level" from="." to="EndLevelNodes/RichTextLabel" method="_on_Test_end_level"]
+[connection signal="delete" from="Trash" to="." method="_on_Trash_delete"]
+[connection signal="mouse_entered" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Area2D" to="Trash" method="_on_Area2D_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
